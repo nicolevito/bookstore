@@ -6,7 +6,7 @@ from product.serializers.product_serializer import ProductSerializer
 class OrderSerializer(serializers.ModelSerializer):
     product = ProductSerializer(many=True, read_only=True)
     product_id = serializers.PrimaryKeyRelatedField(
-        queryset=Product.objects.all(), 
+        queryset=Product.objects.all().order_by('id'), 
         write_only=True, 
         many=True
     )
