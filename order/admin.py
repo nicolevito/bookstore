@@ -1,3 +1,3 @@
 from django.contrib import admin
 
-from models.order import Order
+from order.models.order import Order
