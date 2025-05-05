@@ -12,8 +12,6 @@ class TestProductViewSet(APITestCase):
     
     def setUp(self):
         self.user = UserFactory()
-        token = Token.objects.create(user=self.user)
-        token.save() #added
         
         self.product = ProductFactory(
             title='pro controller',
@@ -21,8 +19,6 @@ class TestProductViewSet(APITestCase):
         )
         
     def test_get_all_product(self):
-        token = Token.objects.get(user__username=self.user.username)
-        self.client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
         response = self.client.get(
             reverse('product-list', kwargs={'version': 'v1'})
         )

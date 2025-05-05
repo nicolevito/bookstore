@@ -7,8 +7,6 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework.permissions import IsAuthenticated
 
 class ProductViewSet(ModelViewSet):
-    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
-    permission_classes = [IsAuthenticated]
     serializer_class = ProductSerializer
     
     def get_queryset(self):
